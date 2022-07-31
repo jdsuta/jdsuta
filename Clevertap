@@ -1,0 +1,80 @@
+// I tested the button using replit: https://replit.com/@jdsuta/Testclevertap#index.html Additionally, I notice the changes in the Dashboard. 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+    var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[],        privacy:[]};
+ // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+    clevertap.account.push({"id": "TEST-Z88-WKZ-956Z"});
+    clevertap.privacy.push({optOut: false}); 
+    
+//set the flag to true, if the user of the           device opts out of sharing their data
+clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+(function () {
+        var wzrk = document.createElement('script');
+        wzrk.type = 'text/javascript';
+        wzrk.async = true;
+        wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js?v=0';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wzrk, s);
+})();
+</script>
+
+
+  
+</head>
+
+<body>
+  Hello world
+  <p>
+  <button onclick="myFunction()">Click Me!</button>
+    </p>
+
+<script>
+function myFunction() {
+  clevertap.event.push("Product viewed", {
+      "Product ID": 1,
+      "Product Image": "https://d35fo82fjcw0y8.cloudfront.net/2018/07/26020307/customer-success-clevertap.jpg",
+      "Product Name": "CleverTap",
+  });
+  
+
+  clevertap.onUserLogin.push({
+ "Site": {
+   "Name": "David Suta",            // String
+   "Identity": 12345678,              // String or number
+   "Email": "jidesh+jdsuta@clevertap.com",         // Email address of the user
+   "Phone": "+14155551234",           // Phone (with the country code)
+   "Gender": "M",                     // Can be either M or F
+   "DOB": new Date(),                 // Date of Birth. Date object
+
+// optional fields. controls whether the user will be sent email, push etc.
+   "MSG-email": true,                // Disable email notifications
+   "MSG-push": false,                  // Enable push notifications
+   "MSG-sms": false,                   // Enable sms notifications
+   "MSG-whatsapp": false,              // Enable WhatsApp notifications
+   
+ }
+});
+   
+}
+</script>
+
+  
+  <script src="script.js"></script>
+
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>
